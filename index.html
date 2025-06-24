@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sótão dos Esquecidos - Achados e Perdidos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@400;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="web-overlay top-left"></div>
+        <div class="web-overlay top-right"></div>
+        <h1>Sótão dos Esquecidos</h1>
+        <p>Onde o tempo guarda o que você perdeu, e a memória desenterra o que foi achado.</p>
+        <nav>
+            <a href="#about">Sobre o Sótão</a>
+            <a href="#report-lost">Perdi Algo</a>
+            <a href="#report-found">Achei Algo</a>
+            <a href="#contact">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="web-overlay bottom-left"></div>
+            <div class="web-overlay bottom-right"></div>
+            <h2>Boas-vindas ao nosso recanto de memórias esquecidas...</h2>
+            <p>Seja bem-vindo, viajante do tempo. Este é o Sótão dos Esquecidos, um portal para itens que foram perdidos e, talvez, aguardam pacientemente para serem reencontrados.</p>
+            <button class="cta-button" onclick="document.getElementById('report-lost').scrollIntoView({ behavior: 'smooth' });">Perdi Algo Valioso</button>
+        </section>
+
+        <section id="about" class="container">
+            <div class="section-title">
+                <h3>Sobre o Nosso Sótão</h3>
+                <div class="separator"></div>
+            </div>
+            <p>Em um canto empoeirado do tempo, existe um lugar onde objetos perdidos encontram um refúgio. O Sótão dos Esquecidos não é apenas um site, é um guardião de histórias, um repositório de lembranças tangíveis que esperam por seus donos. Nossa inteligência artificial, "Curador-IA", com sua sabedoria acumulada, está pronta para ajudá-lo a desvendar o paradeiro de seus bens mais preciosos, ou a catalogar os tesouros que encontrou.</p>
+            <p>Cada item aqui tem uma história. Deixe-nos ajudá-lo a reescrever o final feliz.</p>
+        </section>
+
+        <section id="report-lost" class="container">
+            <div class="section-title">
+                <h3>Reportar um Item Perdido</h3>
+                <div class="separator"></div>
+            </div>
+            <p>Para nos ajudar a encontrar seu item, por favor, descreva-o para o Curador-IA. Quanto mais detalhes, maiores as chances de reencontro!</p>
+            <div class="ia-chat-box">
+                <div id="chat-messages" class="chat-messages">
+                    <p class="ia-message">Curador-IA: Saudações, viajante! Em que posso auxiliá-lo nesta busca por aquilo que se perdeu nas brumas do tempo? Por favor, descreva o item que lhe falta.</p>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="user-input" placeholder="Descreva seu item aqui..." onkeypress="handleKeyPress(event)">
+                    <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+                <div id="ia-typing-indicator" class="ia-typing-indicator">
+                    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="report-found" class="container">
+            <div class="section-title">
+                <h3>Reportar um Item Encontrado</h3>
+                <div class="separator"></div>
+            </div>
+            <p>Você encontrou um item que parece ter se perdido no tempo? Ajude-nos a reunir as histórias! Preencha o formulário abaixo com os detalhes do seu achado.</p>
+            <form id="found-item-form" class="antique-form">
+                <label for="found-item-name">Nome do Item Encontrado:</label>
+                <input type="text" id="found-item-name" placeholder="Ex: Relógio de bolso antigo" required>
+
+                <label for="found-item-description">Descrição Detalhada do Achado:</label>
+                <textarea id="found-item-description" rows="5" placeholder="Cor, marca, características únicas, estado de conservação..." required></textarea>
+
+                <label for="found-item-location">Local de Encontro do Item:</label>
+                <input type="text" id="found-item-location" placeholder="Ex: Praça Central, perto da fonte" required>
+
+                <label for="found-item-date">Data de Encontro do Item:</label>
+                <input type="date" id="found-item-date" required>
+
+                <label for="your-contact">Seu Contato (Email ou Telefone):</label>
+                <input type="text" id="your-contact" placeholder="Para que o dono possa te contatar." required>
+
+                <button type="submit" class="cta-button">Enviar Relato de Achado</button>
+                <p id="found-form-message" class="form-message"></p>
+            </form>
+        </section>
+
+        <section id="contact" class="container">
+            <div class="section-title">
+                <h3>Conecte-se Conosco</h3>
+                <div class="separator"></div>
+            </div>
+            <p>Dúvidas? Sugestões? Ou talvez uma nova história para o sótão? Entre em contato!</p>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> E-mail: contato@sotaodosesquecidos.com</p>
+                <p><i class="fas fa-phone"></i> Telefone: (XX) XXXX-XXXX</p>
+                <p><i class="fas fa-map-marker-alt"></i> Endereço: Alameda dos Perdidos, Nº Infinito, Capão Bonito, SP</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Sótão dos Esquecidos. Todos os direitos guardados no tempo.</p>
+        <p>Construído com o conhecimento da era digital e o charme da antiguidade pelo genio programador Bruno.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
